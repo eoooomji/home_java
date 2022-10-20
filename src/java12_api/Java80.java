@@ -1,0 +1,19 @@
+package java12_api;
+
+public class Java80 {
+
+	public static void main(String[] args) {
+		char[] data = {'j','a','V','A'};
+		StringTest st = new StringTest(data);
+		System.out.println(st.length());
+		System.out.println(st.isUpperCase(0));
+		System.out.println(st.isUpperCase(2));
+		System.out.println(st.isLowerCase(0));
+		System.out.println(st.isLowerCase(2));
+		System.out.println(st.charAt(0));
+		System.out.println(st.charAt(2));
+		System.out.println(st.toString());
+		System.out.println(st);
+	}
+
+}
