@@ -646,5 +646,16 @@
 		  
 ---
 
-### 캘린더(Calendar) & System.arraycopy
+### 캘린더(Calendar) & 클래스 배열복사(System.arraycopy) & 시간(currentTimeMillis)
 
+		- currentTimemillis() : 1970.1.1부터 초단위로 누적한 값을 밀리세컨드로 리턴한다.
+		- 하루는 86400초. 1초는 1000밀리세컨드이다.
+		- HH : 24시간, hh : 12시간 / MM : 월, mm : 분
+		- a : 오전,오후
+		- EEEE : 요일
+		
+		
+		- 클래스 배열복사System.arraycopy
+		  ( 입력할 배열(src), 몇번째 인덱스부터(srcPos), 입력받는 배열(dest), 시작할 인덱스(destPos), 넣을 배열의 인덱스 갯수(length) )
+		  : 반복문 사용 없이 좀 더 활용적으로 배열을 복사할 수 있다.
+		  
