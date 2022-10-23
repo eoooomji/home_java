@@ -648,14 +648,100 @@
 
 ### 캘린더(Calendar) & 클래스 배열복사(System.arraycopy) & 시간(currentTimeMillis)
 
+		- Calendar : 연-월-일-시-분-초 를 가져오는 메서드
+		- 대문자로 입력한다.
+		- 메서드 활용 방식 
+		  Calendar cal = Calendar.getInstance();
+		  연도 : cal.get(Calendar.YEAR); 
+		  월 : cal.get(Calendar.MONTH); 1월일 때 0으로 리턴한다.
+		  일 : cal.get(Calendar.DATE);
+		  시간 : cal.get(Calendar.HOUR); 12시간 or cal.get(Calendar.HOUR_OF_DAY); 24시간
+		  분 : cal.get(Calendar.MINUTE);
+		  초 : cal.get(Calendar.SECOND);
+		
+		- 달의 마직막 일 리턴
+		  cal.getActualMaximun(Calendar.DATE);
+		- 오늘의 요일  리턴
+		  cal.get(Calendar.DAY_OF_WEEK);
+		- 올해 시작일 부터 오늘까지의 총 일수
+		  cal.get(cal.DAY_OF_YEAR);
+		
+		- 달력 설정
+		  cal.set(Calendar.YEAR, 2020); 2020년으로 연도 설정 (다른 설정값도 이렇게 저장이 가능하다.)
+		  cal.set(2017,2,1); 2017년 3월 1일으로 설정
+		
+		- GregorianCalendar : isLeapYear()메서드로 윤년과 평년값을 계산 가능하다.
+		  
+		---  
+		  
 		- currentTimemillis() : 1970.1.1부터 초단위로 누적한 값을 밀리세컨드로 리턴한다.
 		- 하루는 86400초. 1초는 1000밀리세컨드이다.
 		- HH : 24시간, hh : 12시간 / MM : 월, mm : 분
 		- a : 오전,오후
 		- EEEE : 요일
 		
+		---
 		
 		- 클래스 배열복사System.arraycopy
 		  ( 입력할 배열(src), 몇번째 인덱스부터(srcPos), 입력받는 배열(dest), 시작할 인덱스(destPos), 넣을 배열의 인덱스 갯수(length) )
 		  : 반복문 사용 없이 좀 더 활용적으로 배열을 복사할 수 있다.
 		  
+---
+
+### 예외(exception) & 에러(error)
+
+- 에러(erroe) : 프로그램 코드에 의해서 해결할 수 없는 심각한 오류
+
+- 예외(exception) : 프로그램 코드에 의해서 해결할 수 있는 오류
+
+- exception을 제공해주는 목적
+  : 기본 시스템은 정확하지 않는 값을 처리하는데 자바에서는 정확한 값만 처리할 수 있도록 exception을 제공해준다.
+  : exception이 발생이 되면 프로그램이 정상적인 종료가 안되므로 이를 해결하기 위해서 예외처리를 제공해주고 있다.
+  
+		- 예외가 발생되는 시점에 따른 종류
+		  1. checked exception
+		     : 컴파일 시점에 발생이 되므로 반드시 예외처리를 해야한다.
+		     : RuntimeException외 클래스
+		  2. unchecked exception
+		     : 실행시점에 발생이 되므로 예외처리를 선택할 수 있다.
+		     : RuntimeException과 하위클래스들이다.
+		     
+		- 예외처리 방식
+		
+		  1. try{
+		     // exception 발생 가능이 있는 구문
+		     } catch( // try영역에서 발생된 exception객체 선언) {
+		     // try영역에서 exception이 발생되었을 때 해결해주는 구문
+		     } finally {
+		     // 무조건 실행되는 구문
+		     }
+		  
+		  2. - exception이 발생되었을 때 처리순서
+		       try영역 -> catch영역 -> finally영역
+		     - exception이 발생되지 않았을 때 처리순서
+		       try영역 -> finally영역
+		  
+		  3. try영역 또는 catch영역에서 return을 만나고 finally영역을 수행한다.
+		  
+		  4. try~catch, try~finally만 작성해도 가능하다. 단 catch~finally, try 만은 사용할 수 없다.
+		     (finally는 생략 가능하다.)
+		  
+		  5. 예외에서의 메세지
+		     String get.Message() : 메세지
+		     String toString() : 예외타입과 메세지
+		     void printStackTrace() : 예외가 발생된 경로 추적
+		  
+		  - 다중 catch
+		    : is a(상속)관계에 있는 exception들을 나열할 때는 제일위에 최하위 자손, 제일 아래에 최상위 조상을 입력한다.
+		    : is a관계가 아닌 exception객체들은 순서에 상관없다.
+		     
+		  - throws
+		     : 예외처리를 현재 메소드를 호출하는 곳으로 떠 넘길 때 사용
+		       (java.io, java.net)
+		  
+		  - throw
+		    : 강제적으로 exception을 발생시킬 때 사용한다.
+		
+		
+
+
