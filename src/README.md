@@ -511,6 +511,8 @@
 		- split("a") : 메모리에 저장된 문자열을 "a"로 구분해서 문자열 배열로 리턴
 		- String.valueOf() : 기본데이터 타입을 전부 String으로 호출이 가능하게끔 리턴
 		- toCharArray() : 문자열을 문자(캐릭터)배열로 바꿔주어 리턴
+		- valueof() : ()안의 객체를 String객체로 변환하여 리턴
+		- 
 
 --- 
 
@@ -558,3 +560,91 @@
 		- Pattern.DOTALL : 수식 '.'과 모든 문자와 match 되고 '\n' 도 match 에 포함됩니다.
 		- Pattern.UNICODE_CASE : 유니코드를 기준으로 대소문자 구분 없이 match 시킵니다.
 		- Pattert.UNIX_LINES : 수식 '.' 과 '^' 및 '$'의 match시에 한 라인의 끝을 의미하는 '\n'만 인식됩니다.
+
+---
+
+### 스트링 버퍼(StringBuffer) & 스트링 빌더(StringBuilder)
+
+- 문자열 값을 수정할 수 있는 mutable(가변)이다.
+
+- 기본 16분자 크기로 지정된 버퍼를 이용하며, 크기를 증가시킬 수 있다.
+
+		- String : immuetable 불변. 값이 변하지 않는다.
+
+		- replace() : 새로운 임시 메모리 생성 및 기존데이터 복사(StringBuffer)가 이루어 진다.
+
+		- 새로운 String을 생성 후 StringBuffer가 복사 및 값이 넘어간다.
+
+		- StringBuffer에 객체 생성을 한후 replace가 이루어지면 기존의 값 또한 바뀌게 된다.
+
+		- insert(2," ") : 지정한 인덱스에 문자열 삽입.
+		- delete(1,6) : 1인덱스부터 6인덱스 미만 사이의 문자열 삭제
+		- append() : 마지막에 문자열 추가
+		- reverse() : 문자열을 반대로 변경
+		- floor : 소수점 버리기
+		- round : 반올림
+		- ceil : 입력 인자 값보다 크거나 같은 가장 작은 정수 값을 double형으로 리턴
+
+---
+
+### 스캐너(Scanner)
+
+- 콘솔창으로 데이터를 읽어보기 위해서 콘솔창과 연결하는 클래스
+
+		- System.in : 콘솔창에 데이터 직접 입력
+		- next() : 문자열 리턴. 한 단어만 리턴. 값을 바로 입력. 새로운 데이터를 입력한다.
+		- nextLine() : 한 문장을 리턴
+		- nextInt() : 정수 값 리턴
+		- nextFloat() : 플로트 값 리턴
+		- nextDouble() : 더블 값 리턴
+		- 메소드를 만나면 대기상태가 되며 사용자가 데이터를 입력하고 enter를 하면 메소드를 읽는다.
+		
+---
+
+### 래퍼(Wrapper)
+
+- 기본 자료형을 클래스로 정의해놓은 것을 Wrapper라고 한다.
+
+- 메모리에 저장된 값을 다른 자료형으로 변환해주는 메서드를 제공하기 위해서 Wrapper클래스를 제공한다.
+
+- auto-boxing : 스택 영역 => 힙 영역 복사
+
+- auto-unboxing : 힙 영역 => 스택 영역 복사
+
+		- 클래스 명
+		-  멤버변수      -> 객체(Object)
+		   char		-> Character
+ 		   byte		-> Byte
+		   short	-> Short
+ 		   int		-> Integer
+ 		   long		-> Long
+ 		   float	-> Float
+ 		   double	-> Double
+ 		   boolean	-> Boolean
+		   
+		- ex)
+		  int num1 = 3;
+		  Integer valInt = num1; // auto-boxing 발생
+		  int num2 = valInt; // auto-unboxing 발생
+		  
+		- 크기가 다르다면 auto-unboxing 발생이 안된다.
+		  double -> int 실행 x
+		  
+		- intValue()
+		- Integer.valueOf()
+		- Integer.parseInt(); ... 여러가지 메서드가 있다.
+
+		- 여러 메서드
+		  toUpperCase() : 대문자로 리턴
+		  toLowerCase() : 소문자로 리턴
+		  isUpperCase() : 대문자 논리
+		  isLowerCase() : 소문자 논리
+		  isAlphabetic() : 알파벳 논리
+		  isDigit() : 숫자 논리
+		  toString() : 문자열로 리턴
+		  toCharArray() : 문자 배열로 리턴
+		  
+---
+
+### 캘린더(Calendar) & System.arraycopy
+
