@@ -587,6 +587,21 @@
 
 ---
 
+### 스트링토크나이저(StringTokenizer)
+
+- StringTokenizer클래스는 문자열을 우리가 지정한 구분자로 문자열을 쪼개주는 클라스이다.
+
+- 그렇게 쪼개어진 문자열을 토큰(token)이라고 부른다.
+
+                - StringTokenizer("문자열", "구분자")
+		  : 문자열의 구분자가 공백일때는 2번째 인자값(구분자)은 생략할 수 있다.
+		  
+		- countTokens() : 토큰의 갯수 리턴
+		- nextToken() : 포인터가 가리키는 token값 리턴 후 포인터 위치 이동
+		- hasMoreTokens() : 메모리에 저장된 토큰이 있으면 true, 없으면 false를 리턴
+
+---
+
 ### 스캐너(Scanner)
 
 - 콘솔창으로 데이터를 읽어보기 위해서 콘솔창과 연결하는 클래스
@@ -776,10 +791,15 @@
 		  - read() 
 		    : 텍스트 파일에서 한 글자씩 글자를 읽어서, char를 리턴한다.
 		    : 읽을 글자가 없으면 -1을 리턴한다.
+		  - readLine()
+		    : 파일의 끝이면 null을 리턴
 		  
 		  - file.exist() : 파일의 존재 여부
 		  - file.isFile() : 파일인지 아닌지 확인하기
-		  
+		  - deleteOnExix() : file객체를 현재 시스템이 종료가 될 때 파일을 삭제시켜라
+		  - createTempFile(); : 임시 파일 생성. 삭제처리를 해주어야 한다.
+		  - delete() : 폴더 삭제
+		  - LineNumberReader : 라인번호를 출력할 수 있는 메서드를 제공하는 스트림
 		  
 
 ---
